@@ -1,5 +1,16 @@
 CREATE DATABASE Dating_Database_Project_2
 
+
+SELECT * FROM my_contacts;
+SELECT * FROM zip_codes;
+SELECT * FROM professions;
+SELECT * FROM statuses;
+SELECT * FROM contact_seeking;
+SELECT * FROM seekings;
+SELECT * FROM contact_interest;
+SELECT * FROM interests;
+
+
 CREATE TABLE my_contacts 
 	(
 		contact_id BIGSERIAL CONSTRAINT contact_id_key PRIMARY KEY, 
@@ -9,7 +20,7 @@ CREATE TABLE my_contacts
 		email VARCHAR(30) UNIQUE NOT NULL,
 		gender CHAR(1) NOT NULL,
 		birthday DATE NOT NULL CONSTRAINT birthday_check CHECK (birthday > '1923/1/1'),
-		postal_code INT REFERENCES zip_codes (zip_code) ON DELETE CASCADE, 
+		postal_code INT REFERENCES zip_codes (postal_code) ON DELETE CASCADE, 
 		status_id BIGINT REFERENCES statuses (status_id) ON DELETE CASCADE,
 		prof_id BIGINT REFERENCES professions (prof_id) ON DELETE CASCADE
 	);
@@ -17,7 +28,7 @@ CREATE TABLE my_contacts
 
 CREATE TABLE zip_codes
 	(
-		postal_code INT CHECK (zip_code between 0 and 9999) CONSTRAINT zip_code PRIMARY KEY,
+		postal_code INT CHECK (postal_code between 0 and 9999) CONSTRAINT postal_code PRIMARY KEY,
 		province VARCHAR(30) NOT NULL,
 		city VARCHAR(30) NOT NULL
 	);
@@ -78,25 +89,25 @@ INSERT INTO my_contacts
 		prof_id
 	)
 VALUES 
-	('Tonny','Leon','0680615009','tonny@gmail.com','M','1989/06/13',1001,3,1),
+	('Tonny','Leon','0680615009','tonny@gmail.com','M','1989/06/13',1001,NULL,1),
     ('Girly','Ndala','0810615012','girly@gmail.com','F','1991/08/15',6100,1,9),
-    ('Joey','Ndlala','0789615078','joey@gmail.com','F','2000/10/04',2002,2,3),
+    ('Joey','Ndlala','0789615078','joey@gmail.com','F','2000/10/04',2002,2,NULL),
     ('Marrylin','Smith','0696615009','marrylin@gmail.com','F','1988/06/07',1001,2,8),
     ('Kienen','Kook','0710615889','kienen@gmail.com','M','1970/06/23',2900,3,5),
     ('Sipho','Nchabeleng','0840465099','sipho@gmail.com','M','2001/11/13',2000,1,6),
-    ('Lizzy','Sunny','0830541009','lizzy@gmail.com','F','1976/06/13',1001,3,1),
+    ('Lizzy','Sunny','0830541009','lizzy@gmail.com','F','1976/06/13',1001,NULL,1),
 	('Tom','Smith','0780875909','tom@gmail.com','F','1993/04/17',6100,1,1),
     ('Gugu','Ndaba','0786312012','gugu@gmail.com','F','2000/08/18',2002,3,7),
     ('Jo','Nala','0780618469','jo@gmail.com','M','1959/09/13',2900,1,3),
     ('Mary','Smith','0610615009','mary@gmail.com','F','1999/06/13',6100,2,4),
     ('Kyle','Koo','0710615009','kyle@gmail.com','M','1989/06/13',2900,2,5),
-    ('Sizwe','Nchabe','0840615099','sizwe@gmail.com','M','1976/06/13',2000,3,8),
+    ('Sizwe','Nchabe','0840615099','sizwe@gmail.com','M','1976/06/13',2000,3,NULL),
     ('Liz','Sun','0830777009','liz@gmail.com','F','2001/11/13',7000,1,2),
 	('Goodness','Ndaba','0786312002','goodness@gmail.com','F','1993/04/17',8000,2,7),
     ('Jo-Anne','Ngobeni','0780645669','jo-anne@gmail.com','F','1945/12/18',2000,1,3),
-    ('Maartin','Smith','0610455009','maartin@gmail.com','M','1985/10/24',2300,3,9),
+    ('Maartin','Smith','0610455009','maartin@gmail.com','M','1985/10/24',2300,NULL,9),
     ('Kulani','Koloi','0710616309','kulani@gmail.com','M','2002/12/18',7000,2,6),
-    ('Sibusiso','Nchabe','0894615099','sibusiso@gmail.com','M','1987/02/18',8000,1,3),
+    ('Sibusiso','Nchabe','0894615099','sibusiso@gmail.com','M','1987/02/18',8000,1,NULL),
     ('Lizbeth','Sungu','0830777889','lizbeth@gmail.com','F','1955/12/18',2300,3,6);
 	
 	
@@ -320,7 +331,7 @@ VALUES
 SELECT * 
 FROM my_contacts AS mc
 LEFT JOIN zip_codes AS zc
-ON mc.zip_code = zc.zip_code
+ON mc.postal_code = zc.postal_code
 
 SELECT * 
 FROM my_contacts AS mc
@@ -350,11 +361,3 @@ LEFT JOIN interests AS ints
 ON ci.interest_id = ints.interest_id;
 
 
-DROP TABLE my_contacts;
-DROP TABLE zip_codes;
-DROP TABLE professions;
-DROP TABLE statuses;
-DROP TABLE contact_seeking;
-DROP TABLE seekings;
-DROP TABLE contact_interest;
-DROP TABLE interests;
