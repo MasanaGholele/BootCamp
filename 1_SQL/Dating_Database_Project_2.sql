@@ -1,6 +1,5 @@
 CREATE DATABASE Dating_Database_Project_2
 
-
 SELECT * FROM my_contacts;
 SELECT * FROM zip_codes;
 SELECT * FROM professions;
