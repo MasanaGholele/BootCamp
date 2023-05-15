@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function saySomething(x) {
+        //     return new Promise(resolve => {
+        //         setTimeout(() => {
+        //             resolve("something" + x);
+        //         }, 2000);
+        //     });
+        // }
+        // async function talk(x) { // if you remove the async the promise will not work
+        //     const words = await saySomething(x);  // if you remove the "await" the promise will be pending
+        //     console.log(words);
+        // }
+        // talk(2);
+        // talk(4);
+        // talk(8);
+        // console.log("Hi there");
+        // setTimeout(() => console.log("Sorry I'm late"), 1000);
+        // console.log(add(4, 5));
+        // function add(x, y) {
+        //     return x + y;
+        // }
+        // Self check quiz
+        function addOne(val) {
+            return val + 1;
+        }
+        function total(a, b, callback) {
+            const sum = a + b;
+            return callback(sum);
+        }
+        console.log(total(4, 5, addOne));
+    </script>
+</body>
+
+</html>

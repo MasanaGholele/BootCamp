@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin's Rescue Story Game</title>
+    <link rel="stylesheet" href="chapter_16.css">
+</head>
+<div id="story"></div>
+    <div id="siteFooter">
+        <div id="question"></div>
+        <div id="answer">Enter your answer:
+            <input type="text" id="yourAnswer" />
+            <button type="button" id="submit">Go!</button>
+        </div>
+    </div>
+<body>
+    
+    <!-- everything under here is hidden using CSS so that we can display it later using JavaScript -->
+    <div class="storyPart" id="answer01">
+        <p>You are the captain of a spaceship named "The Flying Hippo." One day, you're working on tuning up your ship's
+            engines when you get an urgent message on your space phone:</p>
+        <p>"Captain, one of our Mars robots is sick. We need you to go to Mars immediately and retrieve it so that we
+            can fix it and download the results of its important experiments."</p>
+        <p>You remember that you're supposed to go to a meeting of the Space Scouts tonight, and you were really looking
+            forward to it. But, on the other hand, the other Space Scouts would understand that this mission is very
+            important.</p>
+        <p>What do you do? Go to Mars, or stay home?</p>
+    </div>
+    <div class="storyPart" id="answer02">
+        <p>Answer Yes when you're ready!</p>
+    </div>
+    <div class="storyPart" id="err0">
+        <p>Please answer yes or no.</p>
+    </div>
+    <div class="storyPart" id="answer11">
+        <p>Great choice! Mars is lovely this time of year (or, during the time of the year when you'll arrive, about 260
+            days from now!).</p>
+        <p>You pack up your things and prepare enough food for the journey, then take off!</p>
+        <p>Launch goes smoothly and you sit back, put on your headphones, and prepare for a relaxing trip.</p>
+        <p>A week later, things are going great. There's nothing for you to do except read, listen to music, and watch
+            movies. Just then, you hear a strange sound.</p>
+        <p>"meow."</p>
+        <p>It sounds like Gizmo, your cat! She must have snuck aboard while you were packing!</p>
+        <p>You're happy to have the company, but you didn't pack enough food for the both of you, and there certainly
+            isn't a grocery store on the way to Mars.</p>
+        <p>You have a choice: risk running out of food on the return trip, or turn around now and go home. What will you
+            do?</p>
+    </div>
+    <div class="storyPart" id="answer12">
+        <p>You decide to stay home. They'll get someone else to fly to Mars. Besides, you heard that they're going to
+            have free pizza at the Space Scouts meeting!</p>
+    </div>
+    <div class="storyPart" id="err1">
+        <p>Please answer Mars or Earth.</p>
+    </div>
+    <div class="storyPart" id="answer21">
+        <p>You decide to risk it. The journey is long, and you give sweet Gizmo half your food, knowing that you may not
+            survive the return trip, but the Flying Hippo can carry the robot home without you, and at least the
+            important experimental data (and Gizmo, of course) will be safe.</p>
+        <p>When you arrive at Mars, you quickly locate the sick robot. But, you also discover something else: a large
+            ice chest full of delicious sandwiches! The last repair crew to visit the robot must have left this here!
+            You unwrap one of the sandwiches and carefully take a bite. Peanut butter! Your favorite! Gizmo's favorite
+            too!</p>
+        <p>You pack up the sandwiches and the sick robot and begin the trip home, knowing that there's now more than
+            enough food for both you and Gizmo.</p>
+    </div>
+    <div class="storyPart" id="answer22">
+        <p>Let someone else get the robot. You turn the Flying Hippo around and head home.</p>
+        <p>When you get back to the spaceport, you open the door to exit your spaceship and your boss is standing
+            outside.</p>
+        <p>You apologize and explain the whole thing to him about how there wouldn't have been enough food.</p>
+        <p>He says he'll send someone else and that you'll have </p>
+        <p>Oh well, at least you still have Gizmo!</p>
+    </div>
+    <div class="storyPart" id="err2">
+        <p>Please answer Risk It or Go Home.</p>
+    </div>
+    <script src="chapter_16.js"></script>
+</body>
+
+</html>

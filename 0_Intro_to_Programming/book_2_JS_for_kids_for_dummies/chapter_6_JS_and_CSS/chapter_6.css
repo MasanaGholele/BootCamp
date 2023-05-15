@@ -1,0 +1,83 @@
+body {
+    font-family: Arial;
+}
+
+p {
+    font-size: 10em;
+}
+
+.eye {
+    background-color: rgb(44, 3, 6);
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+}
+
+.arm {
+    background-color: #cacaca;
+    position: absolute;
+    top: 35%;
+    width: 5%;
+    height: 40%;
+}
+
+#head {
+    width: 30%;
+    height: 30%;
+    border-radius: 15%;
+    background-color: #dadada;
+    position: absolute;
+    left: 33%;
+    top: 5%;
+}
+
+#righteye {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+#lefteye {
+    position: absolute;
+    left: 60%;
+    top: 20%;
+}
+
+#nose {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    width: 10%;
+    height: 10%;
+    background-color: rgb(37, 93, 117);
+}
+
+#mouth {
+    position: absolute;
+    width: 65%;
+    height: 15%;
+    left: 20%;
+    top: 70%;
+    background-color: rgb(255, 0, 157);
+}
+
+#body {
+    position: absolute;
+    left: 25%;
+    top: 35%;
+    width: 45%;
+    height: 55%;
+    background-color: #d7f3f0;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#rightarm {
+    position: absolute;
+    left: 20%;
+}
+
+#leftarm {
+    position: absolute;
+    left: 70%;
+}

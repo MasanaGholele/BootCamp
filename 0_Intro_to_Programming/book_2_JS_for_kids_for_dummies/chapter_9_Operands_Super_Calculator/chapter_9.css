@@ -1,0 +1,54 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    font-size: .85em;
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2em;
+    border-top: 2px dashed yellow;
+    border-bottom: 2px dashed yellow;
+}
+
+input[type=text] {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: #DADADA;
+    font-size: 1.2em;
+}
+
+input[type=submit] {
+    width: 200px;
+    font-size: 2em;
+}
+
+#calculator {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.input-area {
+    background-color: #be82a6;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.operator-choices {
+    text-align: left;
+}
+
+.output-area {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 8px;
+    margin: 8px;
+    font-size: 1.5em;
+}

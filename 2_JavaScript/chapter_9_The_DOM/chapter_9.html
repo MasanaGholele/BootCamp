@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Tester</title>
+</head>
+<h1 class="output">Hello World</h1>
+<div class="output">Test</div>
+
+<body>
+    const ele1 = document.querySelector("h1");
+    console.dir(ele1);
+    const eles = document.querySelectorAll(".output");
+    console.log(eles);
+    <script src="chapter_9.js"></script>
+</body>
+
+</html> -->
+
+<!-- Execise 9.3 -->
+<!-- <!DOCTYPE html>
+<html>
+<div class="output"></div>
+<script>
+    const op = document.querySelector(".output");
+    op.textContent = "Hello!";
+    op.classList.add("red");
+    op.id = "tester";
+    op.style.backgroundColor = "red";
+    const url = document.URL
+    op.textContent = url;
+</script>
+
+</html> -->
+
+<!-- Chapter Project -->
+
+
+<html>
+
+<body>
+
+
+    <div class="output">
+        <h1>Hello</h1>
+        <!-- <div>Test</div>
+        <ul>
+            <li id="one">One</li>
+            <li class="red">Two</li>
+        </ul>
+        <div>Test</div> -->
+    </div>
+    <script>
+        // const op = document.querySelector(".output");
+        // const mainList = document.querySelector("ul");
+        // mainList.id = "mainList";
+        // const divTags = document.querySelectorAll("div");
+        // console.log(divTags);
+        // for (var i = 0; i < divTags.length; i++) {
+        //     divTags[1].id = "id" + (i + 1);
+        //     if (i % 2) {
+        //         divTags[i].style.color = "red"
+        //     } else {
+        //         divTags[i].style.color = "blue"
+        //     }
+        // }
+
+        // Self Check Quiz 1
+        console.dir(document.body)
+
+        // Self Check Quiz 2
+        document.body.textContent = "Hello"
+
+        // Self Check Quiz 3
+        console.dir(document);
+        for (const property in document) {
+            console.log(`${property}: ${document[property]}`);
+        }
+        // Self Check Quiz 4
+        console.dir(document);
+        for (const property in window) {
+            console.log(`${property}: ${document[property]}`);
+        }
+        
+        //Self check quiz 5
+        const header = document.querySelector("h1");
+        header.textContent = "Hello World";
+
+    </script>
+</body>
+
+</html>

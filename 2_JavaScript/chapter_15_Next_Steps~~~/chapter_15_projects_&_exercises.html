@@ -1,0 +1,129 @@
+<!-- Practice exercise 15.1 -->
+<html>
+
+<body>
+
+    <script>
+
+        [
+            {
+                "name": "Learn JavaScript",
+                "status": true
+            },
+            {
+                "name": "Try JSON",
+                "status": false
+            }
+        ]
+
+        const url = "list.json";
+
+        fetch(url).then(rep => rep.json())
+            .then((data) => {
+                data.forEach((el) => {
+                    console.log(`${el.name} = ${el.status}`);
+                });
+            });
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- Projects -->
+<!-- Working with JSON -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Working with JSON Project</title>
+</head>
+
+<body>
+
+    <script src="myscript.js"></script>
+
+</body>
+
+</html>
+
+
+
+<!-- List-making project -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript List Project</title>
+</head>
+
+<body>
+    <div class="output"></div>
+    <input type="text"><button>add</button>
+
+    <script>
+        const output = document.querySelector(".output");
+        const myValue = document.querySelector("input");
+        const btn1 = document.querySelector("button");
+        const url2 = "list.json";
+
+        btn1.addEventListener("click", addToList);
+
+        let localData = localStorage.getItem("myList");
+        let myList = [];
+
+        window.addEventListener("DOMContentLoaded", () => {
+            output.textContent = "Loading......";
+            if (localData) {
+                myList = JSON.parse(localStorage.getItem("myList"));
+                output.innerHTML = "";
+                myList.forEach((el, index) => {
+                    maker(el);
+                });
+            } else {
+                reloader();
+            }
+        });
+
+        function addToList() {
+            if (myValue.value.length > 3) {
+                const myObj = {
+                    "name": myValue.value
+                }
+                myList.push(myObj);
+                maker(myObj);
+                savetoStorage();
+            }
+            myValue.value = "";
+        }
+
+        function savetoStorage() {
+            console.log(myList);
+            localStorage.setItem("myList", JSON.stringify(myList));
+        }
+
+        function reloader() {
+            fetch(url2).then(rep => rep.json())
+                .then((data) => {
+                    myList = data;
+                    myList.forEach((el, index) => {
+                        maker(el);
+                    });
+                    savetoStorage();
+                });
+        }
+
+        function maker(el) {
+            const div = document.createElement("div");
+            div.innerHTML = `${el.name}`;
+            output.append(div);
+        }
+
+    </script>
+    
+</body>
+
+</html>

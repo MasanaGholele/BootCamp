@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+
+<body>
+
+    <script>
+        let q = window.location.search;
+        let params = new URLSearchParams(q);
+        let fname = params.get("fname");
+        let lname = params.get("lname");
+        let age = params.get("age");
+        console.log("Hello " + fname + " " + lname + "!");
+        alert("Hi there, my name is " + fname + " " + lname + " and I wish I was " + age + " years old today!");
+    </script>
+
+</body>
+
+</html>
+

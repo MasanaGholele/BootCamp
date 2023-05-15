@@ -1,0 +1,47 @@
+body {
+    font-family: "Comic Sans MS";
+}
+
+#inputWords {
+    float: left;
+    width: 45%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    line-height: 2em;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+input[type=text] {
+    border-width: 0 0 1px 0;
+    border-color: #333;
+}
+
+#buttonDiv {
+    text-align: center;
+}
+
+#replaceButton {
+    margin-top: 30px;
+    width: 200px;
+}
+
+#story {
+    margin-top: 12px;
+    width: 45%;
+    border: 1px dashed blue;
+    padding: 8px;
+    float: left;
+}
+
+.replacement {
+    text-decoration: underline;
+    text-transform: uppercase;
+}

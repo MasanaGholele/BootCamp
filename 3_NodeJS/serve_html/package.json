@@ -1,0 +1,14 @@
+{
+  "name": "serve_html",
+  "version": "1.0.0",
+  "description": "creating views",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Masana Gholele",
+  "license": "ISC",
+  "dependencies": {
+    "http-status-codes": "^2.2.0"
+  }
+}

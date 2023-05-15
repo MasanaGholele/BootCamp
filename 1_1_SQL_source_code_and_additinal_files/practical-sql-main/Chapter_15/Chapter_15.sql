@@ -1,13 +1,4 @@
---------------------------------------------------------------
--- Practical SQL: A Beginner's Guide to Storytelling with Data
--- by Anthony DeBarros
-
--- Chapter 15 Code Examples
---------------------------------------------------------------
-
--- VIEWS
-
--- Listing 15-1: Creating a view that displays Nevada 2010 counties
+--Creating a view that displays Nevada 2010 counties
 
 CREATE OR REPLACE VIEW nevada_counties_pop_2010 AS
     SELECT geo_name,
@@ -18,13 +9,13 @@ CREATE OR REPLACE VIEW nevada_counties_pop_2010 AS
     WHERE state_us_abbreviation = 'NV'
     ORDER BY county_fips;
 
--- Listing 15-2: Querying the nevada_counties_pop_2010 view
+--  Querying the nevada_counties_pop_2010 view
 
 SELECT *
 FROM nevada_counties_pop_2010
 LIMIT 5;
 
--- Listing 15-3: Creating a view showing population change for US counties
+-- Creating a view showing population change for US counties
 
 CREATE OR REPLACE VIEW county_pop_change_2010_2000 AS
     SELECT c2010.geo_name,
