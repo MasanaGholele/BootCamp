@@ -88,4 +88,3 @@ INSERT INTO variations (animal_type2_id, date_acquired, gender, acquired_from, z
 VALUES
 (1, '1999/3/12', 'F', 'Dhaka Zoo', 'Ariel', 'Healthy coat at last exam.'),
 (2, '2010/9/30', 'F', 'National Zoo', 'Freddy', 'Strong appetite.');
-

@@ -49,16 +49,14 @@ LEFT JOIN employees AS e
 ON d.dept_id = e.dept_id;
 
 SELECT * 
-FROM departments AS d
-RIGHT JOIN employees AS e
+FROM employees AS e
+RIGHT JOIN departments AS d
 ON d.dept_id = e.dept_id;
 
 --Cross join ( do not specify the ON )
 SELECT * 
 FROM departments AS d
 CROSS JOIN employees AS e
-
-
 
 --own code
 SELECT (dept,first_name)
@@ -88,7 +86,7 @@ INSERT INTO schools_right (id, right_school) VALUES
 	(3, 'Morrison Elementary'),
 	(4, 'Chase Magnet Academy'),
 	(6, 'Jefferson High School');
-
+--excludes null values
 SELECT *
 FROM schools_left AS sl
 JOIN schools_right AS sr
@@ -105,7 +103,7 @@ FROM schools_left AS sl
 RIGHT JOIN schools_right AS sr
 ON sl.id = sr.id;
 
---Using Full Outer Join
+--Using Full Outer Join (includes null values)
 SELECT *
 FROM schools_left FULL OUTER JOIN schools_right
 ON schools_left.id = schools_right.id;
@@ -119,13 +117,15 @@ CROSS JOIN schools_right;
 
 --Using NULL to Find Rows with Missing Values
 SELECT *
-FROM schools_left LEFT JOIN schools_right
+FROM schools_left 
+LEFT JOIN schools_right
 ON schools_left.id = schools_right.id
 WHERE schools_right.id IS NULL;
 
 SELECT schools_left.id, schools_left.left_school, schools_right.right_school
 FROM schools_left LEFT JOIN schools_right
-ON schools_left.id = schools_right.id;
+ON schools_left.id = schools_right.id
+WHERE schools_left.id IS NULL;
 
 --using AS aliases
 SELECT lt.id, lt.left_school, rt.right_school
@@ -217,6 +217,7 @@ AND c2010.county_fips = c2000.county_fips
 AND c2010.p0010001 <> c2000.p0010001
 ORDER BY pct_change DESC;
 
+
 /*
 	The reason to join on two columns instead of one is that in both tables, we need the combination 
 	of a state code and a county code to find a unique county. 
@@ -286,7 +287,8 @@ INNER JOIN us_counties_2000 c2000
 SELECT percentile_cont(.5)
     WITHIN GROUP (ORDER BY round( 
 	(CAST(c2010.p0010001 AS numeric(8,1)) - c2000.p0010001) / c2000.p0010001 * 100, 1 )) AS percentile_50th
-FROM us_counties_2010 c2010 INNER JOIN us_counties_2000 c2000
+FROM us_counties_2010 c2010 
+INNER JOIN us_counties_2000 c2000
 	ON c2010.state_fips = c2000.state_fips
    	AND c2010.county_fips = c2000.county_fips;
 

@@ -214,7 +214,7 @@ ROLLBACK signals the end of the block and reverts all changes.*/
 START TRANSACTION;
 UPDATE meat_poultry_egg_inspect
 SET company = 'AGRO Merchants Oakland LLC'
-WHERE company = 'AGRO Merchants Oakland, LLC';
+WHERE company = 'AGRO Merchants Oakland LLC';
 
 SELECT company
 FROM meat_poultry_egg_inspect
