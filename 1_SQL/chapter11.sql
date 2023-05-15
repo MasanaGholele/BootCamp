@@ -76,7 +76,11 @@ FROM time_zone_test;
 SELECT '1929/9/30'::date - '1929/9/27'::date;
 SELECT '1929/9/30'::date + '5 years'::interval;
 
+<<<<<<< HEAD
 SET DATESTYLE TO PostgreSQL,European;
+=======
+
+>>>>>>> 981754471b323477db04ebd71095010f2ebe756b
 -- Taxi Rides
 
 -- Creating a table and importing NYC yellow taxi data

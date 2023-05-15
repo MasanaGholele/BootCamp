@@ -191,8 +191,11 @@ SET date_1 =
 
 -- Listing 13-11: Viewing selected crime data
 
+<<<<<<< HEAD
 Show timezone;
 
+=======
+>>>>>>> 981754471b323477db04ebd71095010f2ebe756b
 SELECT date_1,
        street,
        city,
