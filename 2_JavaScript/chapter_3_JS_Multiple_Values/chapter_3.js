@@ -129,7 +129,7 @@ console.log(shoppingList2);
 
 // 3. Update "Bread" with Bananas and Eggs.
 shoppingList2.splice(1, 1, "Bananas", "Eggs");
-console.log(shoppingList2);
+console.log("shop2 " , shoppingList2);
 
 // 4. Remove the last item from the array and output it into the console.
 shoppingList2.pop();
@@ -172,6 +172,7 @@ exerciseArray = [1, 2, 3];
 
 // 2. Nest the original array into a new array three times.
 exerciseArray2 = [exerciseArray, exerciseArray, exerciseArray];
+console.log(exerciseArray2); 
 
 // 3. Output the value 2 from one of the arrays into the console.
 console.log(exerciseArray2[1][1]); //from 2nd array
@@ -227,7 +228,7 @@ colorProperty = "forSale"
 myCar[colorProperty] = true;
 
 //4. Output make and model into the console.
-console.log(myCar.make, " ", myCar.model);
+console.log(myCar.make, myCar.model);
 
 //5. Output the value of forSale into the console.
 console.log(myCar.forSale);

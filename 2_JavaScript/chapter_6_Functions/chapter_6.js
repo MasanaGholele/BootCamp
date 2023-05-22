@@ -29,7 +29,7 @@
 // }
 // console.log(addTwoNumbers());       // no need to pass it anything because x and y already have values declared within the function
 
-// console.log(addTwoNumbers(6, 6));   // the two values will "replace" the 2 and 3 declared earlier
+// console.log(addTwoNumbers(6, 8));   // the two values will "replace" the 2 and 3 declared earlier
 
 // console.log(addTwoNumbers(18));     // only the x will be replaced
 
@@ -43,13 +43,13 @@
 
 // // We are going to create a program that will randomly describe an inputted name.
 
-// let  descriptions = ["great", "wonderful", "bad", "angry", "careful", "crazy"];
-// function askForName() {
-// let question = prompt("What is your name?");
-// let nameDescrip = Math.floor(Math.random() * descriptions.length);
-// console.log("Mmmmh, you are so " + descriptions[nameDescrip] + " " + question + "!" );
-// }
-// askForName();
+let  descriptions = ["great", "wonderful", "bad", "angry", "careful", "crazy"];
+function askForName() {
+let question = prompt("What is your name?");
+let nameDescrip = Math.floor(Math.random() * descriptions.length);
+console.log("Mmmmh, you are so " + descriptions[nameDescrip] + " " + question + "!" );
+}
+askForName();
 
 // Parameters and arguments
 

@@ -15,7 +15,7 @@ if (rain) {
     console.log("** I can leave my umbrella at home **");
 }
 
-let age = prompt("How old are you?"); //had to add it
+let age = prompt("How old are you?"); // had to add it
 if (age < 18) {
     console.log("We're very sorry, but you can't get in under 18");
 } else {
@@ -24,7 +24,7 @@ if (age < 18) {
 
 
 let hobby = "dancing";
-if (hobby == "coding") {              // use == because any string will be converted to a true boolean automatically
+if (hobby = "coding") {              // use == because any string will be converted to a true boolean automatically
     console.log("** I love coding too! **");
 } else {
     console.log("** Can you teach me that? **");

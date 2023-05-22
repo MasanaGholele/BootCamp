@@ -11,16 +11,18 @@ const express = require("express"),
     subscribersController = require("./controllers/subscribersController"),
     mongoose = require("mongoose"),
     methodOverride = require("method-override");
-
+    
+// 14.1  Set up the connection to your database
 mongoose.connect(
     "mongodb://127.0.0.1:27017/recipe_db",
     { useNewUrlParser: true }
 );
 
 // from source code
+// 14.1
+const db = mongoose.connection;  // Assign the database to the db variable.
 
-const db = mongoose.connection;
-
+// 14.2
 db.once("open", () => {
     console.log("Successfully connected to MongoDB using Mongoose!");
 });

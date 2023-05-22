@@ -38,7 +38,8 @@ app.get("/courses", homeController.showCourses);
 app.get("/contact", homeController.showSignUp);
 app.post("/contact", homeController.postedSignUpForm);
 
-// 12.12 Add error handlers as middleware functions.
+// 12.12 and "11.4"Add error handlers as middleware functions. 
+
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,29 +33,45 @@
         output.id = "tester";
         output.style.backgroundColor = "red";
         console.log(document.URL);
-        output.textContent = document.URL;
+        output.textContent = document.URL; -->
 
 
         // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Projects &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& //
 
         // Manipulating HTML elements with JavaScript
 
-        const output2 = document.querySelector(".output2");
-        const mainList = output2.querySelector("ul");
-        mainList.id = "mainList";
-        console.log(mainList);
-        const eles = document.querySelectorAll("div");
-        for (let x = 0; x < eles.length; x++) {
-            console.log(eles[x].tagName);
-            eles[x].id = "id" + (x + 1);
-            if (x % 2) {
-                eles[x].style.color = "red";
+        // Take the HTML code below:
+
+        <html>
+        <body>
+            <div class="output2">
+                <h1>Hello</h1>
+                <div>Test</div>
+                <ul>
+                    <li id="one">One</li>
+                    <li class="red">Two</li>
+                </ul>
+                <div>Test</div>
+            </div>
+                <script>
+
+                    const output2 = document.querySelector(".output2");
+                    const mainList = output2.querySelector("ul");
+                    mainList.id = "mainList";
+                    console.log(mainList);
+                    const eles = document.querySelectorAll("div");
+                    for (let x = 0; x < eles.length; x++) {
+                        console.log(eles[x].tagName);
+                    eles[x].id = "id" + (x + 1);
+                    if (x % 2) {
+                        eles[x].style.color = "red";
             } else {
-                eles[x].style.color = "blue";
+                        eles[x].style.color = "blue";
             }
         }
 
-    </script>
+    
+        </script>
 
 </body>
 
