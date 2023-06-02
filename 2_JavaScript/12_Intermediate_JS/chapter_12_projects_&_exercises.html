@@ -1,0 +1,502 @@
+<!-- Practice exercise 12.1 
+<html>
+
+<body>
+
+    <script>
+        const output = document.getElementById("output");
+        const findValue = document.getElementById("sText");
+        const replaceValue = document.getElementById("rText");
+
+        document.querySelector("button").addEventListener("click", lookUp);
+
+        function lookUp() {
+            const s = output.textContent;
+            const rt = replaceValue.value;
+            const re = new RegExp(findValue.value, "gi");
+            if (s.match(re)) {
+                let newValue = s.replace(re, rt);
+                output.textContent = newValue;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Practice exercise 12.2 
+<html>
+
+<body>
+
+    <script>
+        const output2 = document.querySelector(".output2");
+        const emailVal = document.querySelector("input");
+        const btn = document.querySelector("button");
+        const emailExp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+
+        btn.addEventListener("click", (e) => {
+
+            const val = emailVal.value;
+            const result = emailExp.test(val);
+            let response = "";
+            if (!result) {
+                response = "Invalid Email";
+                output2.style.color = "red";
+            } else {
+                response = "Valid Email";
+                output2.style.color = "green";
+            }
+            emailVal.value = "";
+            output2.textContent = response;
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Practice exercise 12.3 
+<html>
+
+<body>
+
+    <script>
+
+        function showNames() {
+            let lastOne = "";
+            for (let i = 0; i < arguments.length; i++) { lastOne = arguments[i]; } return lastOne;
+        }
+
+        console.log(showNames("JavaScript", "Laurence", "Mike", "Larry"));
+
+    </script>
+
+</body>
+
+</html-->
+
+
+ <!-- Practice exercise 12.5
+
+ 1. Using throw, try, and catch, check if the value is a number, and if it's not,
+ then create a custom error. -->
+
+<html>
+
+<body>
+
+    <script>
+        
+        // 2. Create a function with one argument called val.
+        function test(val) {
+
+            // 3. Use try, and within it add a condition that checks whether val is a number
+            // using isNaN. If true, then throw an error that states that it is not a number.
+            // Otherwise, output Got a number to the console.
+            try {
+                if (isNaN(val)) {
+                    throw "Not a number";
+                } else {
+                    console.log("Got number");
+                }
+
+            // 4. Use catch to catch any errors and output the error values to the console.
+            } catch (e) {
+                console.error(e);
+
+            // 5. Add finally to run and output the value, and when the function has
+            // completed, also include the value of val.
+            } finally {
+                console.log("Done " + val);
+            }
+        }
+
+        // 6. Create one request to the function with a string argument and another with a
+        // number. See the results in the console.
+        test("a");
+        test(100);
+    </script>
+
+</body>
+
+</html>
+
+
+  
+
+<!--html>
+
+Practice exercise 12.6 
+
+<body>
+
+    <script>
+        console.log(document.cookie);
+        console.log(rCookie("test1"));
+        console.log(rCookie("test"));
+
+        cCookie("test1", "new Cookie", 30);
+        dCookie("test2");
+
+        function cCookie(cName, value, days) {
+            if (days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                let e = "; expires=" + d.toUTCString();
+                document.cookie = cName + "=" + value + e + "; path=/";
+            }
+        }
+
+        function rCookie(cName) {
+            let cookieValue = false;
+            let arr = document.cookie.split("; ");
+            arr.forEach(str => {
+                const cookie = str.split("=");
+                if (cookie[0] == cName) {
+                    cookieValue = cookie[1];
+                }
+            });
+            return cookieValue;
+        }
+
+        function dCookie(cName) {
+            cCookie(cName, "", -1);
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Practice exercise 12.7 
+<html>
+
+<body>
+
+    <script>
+        const userTask = document.querySelector(".main input");
+        const addBtn = document.querySelector(".main button");
+        const output3 = document.querySelector(".output3");
+        const tasks = JSON.parse(localStorage.getItem("tasklist")) || [];
+
+        addBtn.addEventListener("click", createListItem);
+
+        if (tasks.length > 0) {
+            tasks.forEach((task) => {
+                genItem(task.val, task.checked);
+            });
+        }
+
+        function saveTasks() {
+            localStorage.setItem("tasklist", JSON.stringify(tasks));
+        }
+
+        function buildTasks() {
+            tasks.length = 0;
+            const curList = output3.querySelectorAll("li");
+            curList.forEach((el) => {
+                const tempTask = {
+                    val: el.textContent,
+                    checked: false
+                };
+                if (el.classList.contains("ready")) {
+                    tempTask.checked = true;
+                }
+                tasks.push(tempTask);
+            });
+            saveTasks();
+        }
+
+        function genItem(val, complete) {
+            const li = document.createElement("li");
+            const temp = document.createTextNode(val);
+            li.appendChild(temp);
+            output3.append(li);
+            userTask.value = "";
+            if (complete) {
+                li.classList.add("ready");
+            }
+            li.addEventListener("click", (e) => {
+                li.classList.toggle("ready");
+                buildTasks();
+            });
+            return val;
+        }
+
+        function createListItem() {
+            const val = userTask.value;
+            if (val.length > 0) {
+                const myObj = {
+                    val: genItem(val, false),
+                    checked: false
+                };
+                tasks.push(myObj);
+                saveTasks();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Practice exercise 12.8 
+
+<html>
+
+<body>
+    <script>
+
+        let myList = [{
+            "name": "Learn JavaScript",
+            "status": true
+        },
+        {
+            "name": "Try JSON",
+            "status": false
+        }
+        ];
+
+        reloader();
+
+        function reloader() {
+            myList.forEach((el) => {
+                console.log(`${el.name} = ${el.status}`);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Practice Exercise 12.9 
+
+<html>
+
+<body>
+    <script>
+
+        let myList2 = [{
+            "name": "Learn JavaScript",
+            "status": true
+        },
+        {
+            "name": "Try JSON",
+            "status": false
+        }
+        ];
+        const newStr = JSON.stringify(myList2);
+        const newObj = JSON.parse(newStr);
+        newObj.forEach((el) => {
+            console.log(el);
+        });
+
+    </script>
+
+</body>
+
+</html> -->
+
+<!-- Projects
+Email extractor
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <textarea name="txtarea" rows=2 cols=50></textarea> <button>Get Emails</button>
+
+    <textarea name="txtarea2" rows=2 cols=50></textarea>
+
+    <script>
+        // set text areas and the button as JavaScript objects
+        const firstArea = document.querySelector("textarea[name='txtarea']");
+        const secArea = document.querySelector("textarea[name='txtarea2']");
+
+        // Add an event listener to the button that will invoke a function that gets the
+        // content of the first textarea and filters it to only accept email addresses
+        document.querySelector("button").addEventListener("click", lookUp);
+
+        // return an array of the email addresses that were matched from
+        // within the content from the first textarea.
+        function lookUp() {
+            const rawTxt = firstArea.value;
+            const eData = rawTxt.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+
+            // To remove any duplicates, create a separate array that will hold only unique values.
+            const holder = [];
+
+            // Loop through all the email addresses found and check whether each one is
+            //  already in the holder array, and if not, add it
+            for (let x = 0; x < eData.length; x++) {
+                if (holder.indexOf(eData[x]) == -1) {
+                    holder.push(eData[x]);
+                }
+            }
+            // join together the results of
+            // the email addresses found within the content and output it into the second textarea.
+            secArea.value = holder.join(',');
+        }
+
+    </script>
+</body>
+
+</html>
+ -->
+
+
+
+
+
+<!-- Form validator 
+
+<html>
+
+<body>
+
+    <script>
+        const myForm = document.querySelector("form");
+        const inputs = document.querySelectorAll("input");
+        const errors = document.querySelectorAll(".error");
+        const required = ["email", "userName"];
+
+        myForm.addEventListener("submit", validation);
+
+        function validation(e) {
+            let data = {};
+            e.preventDefault();
+            errors.forEach(function (item) {
+                item.classList.add("hide");
+            });
+            let error = false;
+            inputs.forEach(function (el) {
+                let tempName = el.getAttribute("name");
+                if (tempName != null) {
+                    el.style.borderColor = "#ddd";
+                    if (el.value.length == 0 &&
+                        required.includes(tempName)) {
+                        addError(el, "Required Field", tempName);
+                        error = true;
+                    }
+                    if (tempName == "email") {
+                        let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A - Za - z0 - 9] +) \w + /;
+                        let result = exp.test(el.value);
+                        if (!result) {
+                            addError(el, "Invalid Email", tempName);
+                            error = true;
+                        }
+                    }
+                    if (tempName == "password") {
+                        let exp = /[A-Za-z0-9]+$/;
+                        let result = exp.test(el.value);
+                        if (!result) {
+                            addError(el, "Only numbers and Letters",
+                                tempName);
+                            error = true;
+                        }
+                        if (!(el.value.length > 3 &&
+                            el.value.length < 9)) {
+                            addError(el, "Needs to be between 3-8 " + "characters", tempName);
+                            error = true;
+                        }
+                    }
+                    data[tempName] = el.value;
+                }
+            });
+            if (!error) {
+                myForm.submit();
+            }
+        }
+
+        function addError(el, mes, fieldName) {
+            let temp = el.nextElementSibling;
+            temp.classList.remove("hide");
+            temp.textContent = fieldName.toUpperCase() + " " + mes;
+            el.style.borderColor = "red";
+            el.focus();
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+ Simple math quiz 
+<!doctype html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <span class="val1"></span> <span>+</span>
+    <span class="val2"></span> = <span>
+        <input type="text" name="answer"></span><button>Check</button>
+    <div class="output"></div>
+
+    <script>
+        const app = function () {
+            const game = {};
+            const val1 = document.querySelector(".val1");
+            const val2 = document.querySelector(".val2");
+            const output = document.querySelector(".output");
+            const answer = document.querySelector("input");
+
+            function init() {
+                document.querySelector("button").addEventListener(
+                    "click", checker);
+                loadQuestion();
+            }
+            function ranValue(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) +
+                    min);
+            }
+
+            function loadQuestion() {
+                game.val1 = ranValue(1, 100);
+                game.val2 = ranValue(1, 100);
+                game.answer = game.val1 + game.val2;
+                val1.textContent = game.val1;
+                val2.textContent = game.val2;
+            }
+
+            function checker() {
+                let bg = answer.value == game.answer ? "green" : "red";
+                output.innerHTML +=
+                    `<div style="color:${bg}">
+                            ${game.val1} + ${game.val2} = ${game.answer} (${answer.value})
+                        </div>`;
+                answer.value = "";
+                loadQuestion();
+            }
+            return {
+                init: init
+            };
+        }();
+
+        document.addEventListener('DOMContentLoaded', app.init);
+    </script>
+
+</body>
+
+</html> -->

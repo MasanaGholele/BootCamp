@@ -1,0 +1,499 @@
+<!--!DOCTYPE html>
+Practice exercise 10.1
+
+<body>
+
+    <script>
+
+        console.dir(document);
+
+        document.body.children;
+
+        document.body.children[0].children[0];
+
+        document.body.children[0].children[0].nextSibling;
+    </script>
+
+</body>
+
+</html>
+
+
+
+Practice exercise 10.2
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Canvas HTML5</title>
+</head>
+
+<body>
+    <div id="one">Hello World</div>
+
+    <script>
+        const myEle = document.getElementById("one");
+        console.log(myEle);
+    </script>
+
+</body>
+
+</html>
+
+
+Practice exercise 10.3
+<!doctype html>
+<html>
+
+<head>
+    <title>Dynamic event manipulation</title>
+</head>
+
+<body>
+    <div>Hello World 1</div>
+    <div>Hello World 2</div>
+    <div>Hello World 3</div>
+
+    <script>
+        const myEles2 = document.getElementsByTagName("div");
+        console.log(myEles2[1]);
+    </script>
+
+</body>
+
+</html>
+
+
+Practice exercise 10.4
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Canvas HTML5</title>
+</head>
+
+<body>
+
+    <h1 class="ele">Hello World</h1>
+    <div class="ele">Hello World 1</div>
+    <div class="ele">Hello World 3</div>
+
+    <script>
+        const myEles = document.getElementsByClassName("ele");
+        console.log(myEles[0]);
+    </script>
+
+</html>
+
+
+
+Practice exercise 10.5
+<!doctype html>
+<html>
+
+<head>
+    <title>Canvas HTML5</title>
+</head>
+
+<body>
+
+    <h1 class="ele">Hello World</h1>
+    <div class="ele">Hello World 1</div>
+    <div class="ele">Hello World 3</div>
+    <p class="ele">Hello World 4</p>
+
+    <script>
+        const myEle5 = document.querySelector(".ele");
+        console.log(myEle5);
+    </script>
+
+</html>
+
+
+Practice exercise 10.6
+<!doctype html>
+<html>
+
+<head>
+    <title>JS Tester</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="myEle">One</div>
+        <div class="myEle">Two</div>
+        <div class="myEle">Three</div>
+        <div class="myEle">Four</div>
+        <div class="myEle">Five</div>
+    </div>
+
+    <script>
+        const eles = document.querySelectorAll(".myEle");
+        console.log(eles);
+        eles.forEach((el) => {
+            console.log(el);
+        });
+    </script>
+
+</body>
+
+</html-->
+
+
+Practice exercise 10.7
+
+<!doctype html>
+<html>
+
+<head>
+    <title> Ex 10.7 JS Tester </title>
+</head>
+
+
+<body>
+
+
+    <div>
+        <!-- 1. Create a button within a basic HTML document and add the onclick attribute. -->
+
+        <!-- 3. Add "this" to the onclick function parameters to send the current element object data while using "this". -->
+        <button onclick="message(this)">Button 1</button>
+
+        <!-- 5. Add a second button to the page also invoking the same function on the click. -->
+        <button onclick="message(this)">Button 2</button>
+
+    </div>
+
+    <script>
+        // 2. Create a function to handle a click within your JavaScript code. You can name the function message.
+
+        function message(el) {
+            // 4. Within the message function, use console.dir() to output in the console the
+            // element object data that was sent to the function using onclick and "this".
+
+            // 6. When the button is clicked, you should see the element that triggered the click in the console
+            console.dir(el.textContent);
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!--html>
+    Practice exercise 10.8
+
+<body>
+
+    <script>
+        const message = document.querySelector("#message");
+        const myArray = ["Laurence", "Mike", "John", "Larry", "Kim", "Joanne", "Lisa", "Janet", "Jane"];
+
+        build();
+        //addClicks();
+        function build() {
+            let html = "<h1>My Friends Table</h1><table>";
+            myArray.forEach((item, index) => {
+                html += `<tr class="box" data-row="${index + 1}"
+                            data-name="${item}" onclick="getData(this)">
+                            <td>${item}</td>`;
+                html += `<td >${index + 1}</td></tr>`;
+            });
+            html += "</table>";
+            document.getElementById("output").innerHTML = html;
+        }
+
+        function getData(el) {
+            let temp = el.getAttribute("data-row");
+            let tempName = el.getAttribute("data-name");
+            message.innerHTML = `${tempName} is in row #${temp}`;
+        }
+
+    </script>
+    
+</body>
+
+</html>
+
+
+Practice exercise 10.9
+
+<html>
+
+<body>
+
+    <script>
+        const btns = document.querySelectorAll("button");
+        btns.forEach((btn) => {
+            function output() {
+                console.log(this.textContent);
+            }
+            btn.addEventListener("click", output);
+        });
+    </script>
+
+</body>
+
+
+Practice exercise 10.10
+<html>
+
+<body>
+
+    <script>
+        document.getElementById("addNew").onclick = function () {
+            addOne();
+        }
+
+        function addOne() {
+            var a = document.getElementById("addItem").value;
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(a));
+            document.getElementById("sList").appendChild(li);
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!-- Projects -->
+<!-- Collapsible accordion component -->
+
+<!-- <html>
+
+<head>
+    <title>Chapter 10 Projects</title>
+    <style>
+        .active {
+            display: block !important;
+        }
+
+        .myText {
+            display: none;
+        }
+
+        .title {
+            font-size: 1.5em;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Title #1</div>
+        <div class="myText">Just some text #1</div>
+        <div class="title">Title #2</div>
+        <div class="myText">Just some text #2</div>
+        <div class="title">Title #3</div>
+        <div class="myText">Just some text #3</div>
+    </div>
+    <script>
+        const menus = document.querySelectorAll(".title");
+        const openText = document.querySelectorAll(".myText");
+        menus.forEach((el) => {
+            el.addEventListener("click", (e) => {
+                console.log(el.nextElementSibling);
+                remover();
+                el.nextElementSibling.classList.toggle("active");
+            })
+        })
+        function remover() {
+            openText.forEach((ele) => {
+                ele.classList.remove("active");
+            })
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+<!-- 
+Interactive voting system
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <div id="message">Complete JavaScript Course</div>
+    <div>
+        <input type="text" id="addFriend">
+        <input type="button" id="addNew" value="Add Friend">
+    </div>
+    <table id="output"></table>
+    <script>
+        window.onload = build;
+        const myArray2 = ["Laurence", "Mike", "John", "Larry"];
+        const message = document.getElementById("message");
+        const addNew = document.getElementById("addNew");
+        const newInput = document.getElementById("addFriend");
+        const output = document.getElementById("output");
+
+        addNew.onclick = function () {
+            const newFriend = newInput.value;
+            adder(newFriend, myArray2.length, 0);
+            myArray2.push(newFriend);
+        }
+
+        function build() {
+            myArray2.forEach((item, index) => {
+                adder(item, index, 0);
+            });
+        }
+
+        function adder(name, index, counter) {
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            td1.classList.add("box");
+            td1.textContent = index + 1;
+            const td2 = document.createElement("td");
+            td2.textContent = name;
+            const td3 = document.createElement("td");
+            td3.textContent = counter;
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+            tr.onclick = function () {
+                console.log(tr.lastChild);
+                let val = Number(tr.lastChild.textContent);
+                val++;
+                tr.lastChild.textContent = val;
+            }
+            output.appendChild(tr);
+        }
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+<!-- <!doctype html>
+<html>
+
+<head>
+    <title>Hangman Game</title>
+    <style>
+        .gameArea {
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .box,
+        .boxD {
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .boxE {
+            display: inline-block;
+            width: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gameArea">
+        <div class="score"> </div>
+        <div class="puzzle"></div>
+        <div class="letters"></div>
+        <button>Start Game</button>
+    </div>
+    <script>
+        const game = { cur: "", solution: "", puzz: [], total: 0 };
+        const myWords = ["learn Javascript", "learn html", "learn css"];
+        const score = document.querySelector(".score");
+        const puzzle = document.querySelector(".puzzle");
+        const letters = document.querySelector(".letters");
+        const btn = document.querySelector("button");
+
+        btn.addEventListener("click", startGame);
+
+        function startGame() {
+            if (myWords.length > 0) {
+                btn.style.display = "none";
+                game.puzz = [];
+                game.total = 0;
+                game.cur = myWords.shift();
+                game.solution = game.cur.split("");
+                builder();
+            } else {
+                score.textContent = "No More Words.";
+            }
+        }
+
+        function createElements(elType, parentEle, output, cla) {
+            const temp = document.createElement(elType);
+            temp.classList.add("boxE");
+            parentEle.append(temp);
+            temp.textContent = output;
+            return temp;
+        }
+
+        function updateScore() {
+            score.textContent = `Total Letters Left : ${game.total}`;
+            if (game.total <= 0) {
+                console.log("game over");
+                score.textContent = "Game Over";
+                btn.style.display = "block";
+            }
+        }
+
+        function builder() {
+            letters.innerHTML = "";
+            puzzle.innerHTML = "";
+            game.solution.forEach((lett) => {
+                let div = createElements("div", puzzle, "-", "boxE");
+                if (lett == " ") {
+                    div.style.borderColor = "white";
+                    div.textContent = " ";
+                } else {
+                    game.total++;
+                }
+                game.puzz.push(div);
+                updateScore();
+            })
+            for (let i = 0; i < 26; i++) {
+                let temp = String.fromCharCode(65 + i);
+                let div = createElements("div", letters, temp, "box");
+                let checker = function (e) {
+                    div.style.backgroundColor = "#ddd";
+                    div.classList.remove("box");
+                    div.classList.add("boxD");
+                    div.removeEventListener("click", checker);
+                    checkLetter(temp);
+                }
+                div.addEventListener("click", checker);
+            }
+        }
+
+        function checkLetter(letter) {
+            console.log(letter);
+            game.solution.forEach((ele, index) => {
+                if (ele.toUpperCase() == letter) {
+                    game.puzz[index].textContent = letter;
+                    game.total--;
+                    updateScore();
+                };
+            });
+        }
+    </script>
+</body>
+
+</html>

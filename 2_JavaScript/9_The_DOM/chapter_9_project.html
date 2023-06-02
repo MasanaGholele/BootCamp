@@ -1,0 +1,46 @@
+<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Projects &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+
+        Manipulating HTML elements with JavaScript
+
+        Take the HTML code below: -->
+
+<html>
+
+<body>
+    <div class="output">
+        <h1>Hello</h1>
+        <div>Test</div>
+        <ul>
+            <li id="one">One</li>
+            <li class="red">Two</li>
+        </ul>
+        <div>Test</div>
+    </div>
+
+    <script>
+        // Selecting the element with the class output
+        const output = document.querySelector(".output");
+        console.log(output);
+
+        // create a variable mainList then select only the ul tag that is within the output element
+        const mainList = output.querySelector("ul");
+        mainList.id = "mainList"; // update the ID of the "ul tag to mainlist"
+        console.log(mainList);
+
+        const eles = document.querySelectorAll("div");
+
+        for (let x = 0; x < eles.length; x++) {
+            console.log(eles[x].tagName); 
+            if (x % 2) {
+                eles[x].style.color = "red";
+            } else {
+                eles[x].style.color = "blue";
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

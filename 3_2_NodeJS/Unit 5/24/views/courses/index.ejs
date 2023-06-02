@@ -1,0 +1,34 @@
+<h2>Courses Table</h2>
+<a href="<%=`courses/new`%>" class="buttonAdd">Add Course</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% courses.forEach(course => { %>
+    <tr>
+      <td>
+        <a href="<%= `/courses/${course._id}` %>">
+          <%= course.title %>
+        </a>
+      </td>
+      <td>
+        <%= course.description %>
+      </td>
+      <td>
+        <a href="<%=`courses/${course._id}/edit`%>">
+          <span class="buttonEditDelete">Edit</span>
+        </a>
+      </td>
+      <td>
+        <a href="<%= `courses/${course._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')" class="buttonEditDelete">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

@@ -1,0 +1,131 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Tester</title>
+</head>
+<h1 class="output">Hello World</h1>
+<div class="output">Test</div>
+
+<body>
+    const ele1 = document.querySelector("h1");
+    console.dir(ele1);
+    const eles = document.querySelectorAll(".output");
+    console.log(eles);
+    <script src="chapter_9.js"></script>
+</body>
+
+</html-->
+
+
+
+
+
+<!-- <html>
+Exercise 9.1
+
+<body>
+    <script>
+        // 1. Go back to the website you were just viewing and execute the command
+        console.dir(window);
+
+        //  2. Can you find the document object that is nested within the window object? Yes
+
+        // 3. Can you find the height and width (in pixels) of your window?
+        // Under the root of the window object in the console, you can navigate down to
+        // the object that is named document.
+
+        console.log(screen.width, screen.height);
+        //  1536w 864h
+
+// Exercise 9.2
+        // Travel through the window object to get to the location object, then output the values
+        // of the protocol and href properties of the current file, into the console.
+        console.log(window.location.protocol);
+        console.log(window.location.href);
+    </script>
+</body>
+ 
+
+</html>  -->
+
+
+
+<!DOCTYPE html>
+<html>
+Execise 9.3
+
+<div class="output"></div>
+<script>
+    // Within the script tags, make the following changes to the output element:
+    // 1. Select the page element as a JavaScript object.
+    const updated = document.querySelector(".output");
+    console.log(updated);
+
+    // 2. Update the textContent property of the selected page element.
+    updated.textContent = "Hello!";
+    console.log(updated);
+
+
+    // 3. Using the classList.add object method, add a class of red to the element.
+    updated.classList.add("red");
+    console.log(updated);
+
+
+    // 4. Update the id property of the element to tester.
+    updated.id = "tester";
+    console.log(updated);
+
+
+    // 5. Through the style object, add a backgroundColor property of red to the page element.
+    updated.style.backgroundColor = "red";
+    console.log(updated);
+
+
+    // 6. Get the document URL via document.URL and update the text of the output
+    // element to contain the value of the document URL.
+
+    const url = document.URL
+    updated.textContent = url;
+    console.log(updated);
+
+
+</script>
+
+</html> 
+
+
+
+
+<!--html>
+    <body>
+        <script>
+
+     // Self Check Quiz 1
+        console.dir(document.body)
+
+        // Self Check Quiz 2
+        document.body.textContent = "Hello"
+
+        // Self Check Quiz 3
+        console.dir(document);
+        for (const property in document) {
+            console.log(`${property}: ${document[property]}`);
+        }
+        // Self Check Quiz 4
+        console.dir(document);
+        for (const property in window) {
+            console.log(`${property}: ${document[property]}`);
+        }
+        
+        //Self check quiz 5
+        const header = document.querySelector("h1");
+        header.textContent = "Hello World";
+
+    </script>
+</body>
+
+</html--  >
