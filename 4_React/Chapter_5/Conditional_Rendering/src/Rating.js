@@ -13,7 +13,6 @@ class Rating extends Component {
 
     render() {
         return (
-            // 2. apply this style
                 <div style={styles.starStyle}>
                 <h1>Rating: {this.state.rating}</h1>
                 {this.state.rating >= 1 ? (
@@ -47,7 +46,6 @@ class Rating extends Component {
 }
 export default Rating;
 
-// 1. declare the variable
 const styles = {
     starStyle: {
         color: 'orange'

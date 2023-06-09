@@ -6,10 +6,10 @@ class Products extends Component {
         super(props);
         this.products = this.getProducts();
     }
-    getProducts() { // responsible for returning a list of products
+    getProducts() {
         return [
             {
-                imageUrl: "http://loremflickr.com/150/150?random=1", //to render a random image
+                imageUrl: "http://loremflickr.com/150/150?random=1",
                 productName: "Product 1",
                 releasedDate: "May 31, 2016",
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor, tellus laoreet venenatis facilisis, enim ex faucibus nulla, id rutrum ligula purus sit amet mauris. ",
@@ -33,9 +33,7 @@ class Products extends Component {
                 numOfReviews: 2
             }];
     }
-    render() {      // We pass in this function into map which loops through each element, calls the function that returns a
-                    // <Product /> component for each product, and we are returned a new array of Product components
-                    //  which we assign to listProducts.
+    render() {
         const listProducts = this.products.map((product) =>
             <Product key={product.productName} data={product} />
         );

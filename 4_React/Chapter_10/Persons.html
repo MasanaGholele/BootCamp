@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List of Persons</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+
+<body>
+    <script>
+
+        function addPerson(id, name, age) {
+            return {
+                type: "ADD",
+                personData: {
+                    id: id,
+                    name: name,
+                    age: age
+                }
+            }
+        }
+        function removePerson(id) {
+            return {
+                type: "REMOVE",
+                personId: id
+            }
+        }
+        const initialState = {
+            persons: []
+        };
+        function reducer(state, action) {
+            if (state === undefined) {
+                state = initialState;
+            }
+            if (action.type === "ADD") {
+                const newPerson = {
+                    id: action.personData.id,
+                    name: action.personData.name,
+                    age: action.personData.age
+                }
+                return {
+                    ...state,
+                    persons: state.persons.concat(newPerson)
+                }
+            } else if (action.type === "REMOVE") {
+                return {
+                    ...state,
+                    persons: state.persons.filter(person => person.id !==
+                        action.personId)
+                }
+            } else {
+                return state;
+            }
+        }
+        var store = Redux.createStore(reducer);
+        store.subscribe(showState);
+
+        function showState() {
+            console.log("getting state", store.getState());
+        }
+
+        // Calling the functions (adding)
+        
+        store.dispatch(addPerson(1, "Greg", 5));
+        store.dispatch(addPerson(2, "Carol", 3));
+        store.dispatch(addPerson(3, "Gabriel", 6));
+        store.dispatch(addPerson(4, "Fred", 8));
+
+        // Calling the functions (removing)
+        store.dispatch(removePerson(4));
+    </script>
+</body>
+
+</html>
