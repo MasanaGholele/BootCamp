@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class Products extends Component {
     render() {
         const products = ["Learning React", "Pro React", "Beginning React"];
@@ -7,8 +8,7 @@ class Products extends Component {
         );
         return (
             <div>
-                <h2>
-                    <ul>{listProducts}</ul>                </h2>
+                <h2><ul>{listProducts}</ul></h2>
             </div>
         );
     }

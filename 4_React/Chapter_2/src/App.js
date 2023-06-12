@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import Products from './Products';
 
-class App extends Component {
-  formatName(user) {
-    return user.firstName + ' ' + user.lastName;
-  }
-  render() {
-    
-    return (
-      <div>
-        <Products/>
-      </div>
-    );
-  }
-}
-export default App;
 
 // class App extends Component {
-//   formatName(user) {
-//     return user.firstName + ' ' + user.lastName;
-//   }
-//   render() {
-//     const user = {
-//       firstName: 'Greg',
-//       lastName: 'Lim'
-//     };
+  
+//     render() {
+    
 //     return (
 //       <div>
-//         <h1>Hello, {this.formatName(user)}</h1>
+//         <h1>My Second React App!</h1>
+//         <Products/>
+
 //       </div>
 //     );
 //   }
 // }
 // export default App;
+
+class App extends Component {
+  formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+  }
+  render() {
+    const user = {
+      firstName: 'Masana',
+      lastName: 'Gholele'
+    };
+    return (
+      <div>
+        <h1>Hi there, {this.formatName(user)}</h1>
+      </div>
+    );
+  }
+}
+export default App;
 
 
 
