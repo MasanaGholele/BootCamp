@@ -1,5 +1,6 @@
 import React from "react";
-import TodoList from "./todo";
+import TodoList from "./TodoList";
+
 class TodoApp extends React.Component {
     constructor() {
         super();
@@ -11,12 +12,14 @@ class TodoApp extends React.Component {
     changeTodoInput = (event) => {
         this.setState({ inputData: event.target.value })
     }
+
     addTodo = (event) => {
         if (this.state.inputData !== '') {
             let newTodoItems = [...this.state.todoItems, this.state.inputData];
             this.setState({ todoItems: newTodoItems, inputData: "" })
         }
     }
+
     deleteTodo = (index) => {
         let todoItems = [...this.state.todoItems];
         let newTodoItems = todoItems.filter((value, key) => {
@@ -40,7 +43,9 @@ class TodoApp extends React.Component {
                     </div>
                 </div>
             </div>
+
         );
     }
 }
+
 export default TodoApp;
