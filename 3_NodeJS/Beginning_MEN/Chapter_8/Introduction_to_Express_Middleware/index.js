@@ -1,12 +1,12 @@
 const express = require('express')
 const path = require('path')
-
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1/my_database', { useNewUrlParser: true });
-
 const app = new express()
 const ejs = require('ejs')
 app.set('view engine', 'ejs')
+const BlogPost = require('./models/BlogPost.js')
+const fileUpload = require('express-fileupload')
 
 // NEW code - install the body parsing middleware to enable the POST function
 app.use(express.static('public'))
@@ -17,12 +17,25 @@ app.use(
         extended: false
     })
 );
-
-const fileUpload = require('express-fileupload')
 app.use(fileUpload())
 
+// const customMiddleWare = (req, res, next) => {
+//     console.log('Custom middle ware called')
+//     next()
+// }
+// app.use(customMiddleWare)
 
-const BlogPost = require('./models/BlogPost.js')
+const validateMiddleWare = (req, res, next) => {
+    console.log("in validation middleware");
+    console.log("req files");
+    if (req.files == null || req.body.title == null) {
+        console.log("files are null");
+        return res.redirect('/posts/new')
+    }
+    next()
+}
+
+app.use('/posts/store', validateMiddleWare)
 
 app.listen(4000, () => {
     console.log('App listening on port 4000')
@@ -62,10 +75,6 @@ app.get('/contact', (req, res) => {
     res.render('contact');
 })
 
-app.get('/post', (req, res) => {
-    //res.sendFile(path.resolve(__dirname,'pages/post.html'))
-    res.render('post')
-})
 
 // NEW code - create post route
 app.get('/posts/new', (req, res) => {
@@ -85,10 +94,12 @@ app.get('/post/:id', async (req, res) => {
 // console.log(req.body) // it will now "post" to the database instead
 
 
-app.post('/posts/store', async (req, res) => {
+app.post('/posts/store', (req, res) => {
+    console.log("creating new post");
     let image = req.files.image;
     image.mv(path.resolve(__dirname, 'public/img', image.name),
         async (error) => {
+            console.log("creating", image.name)
             await BlogPost.create({
                 ...req.body,
                 image: '/img/' + image.name
