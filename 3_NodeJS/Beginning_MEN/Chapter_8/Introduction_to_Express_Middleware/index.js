@@ -1,15 +1,16 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1/my_database', { useNewUrlParser: true });
-const app = new express()
 const ejs = require('ejs')
-app.set('view engine', 'ejs')
-const BlogPost = require('./models/BlogPost.js')
 const fileUpload = require('express-fileupload')
 
-// NEW code - install the body parsing middleware to enable the POST function
+const app = new express()
+
 app.use(express.static('public'))
+app.set('view engine', 'ejs')
+app.use(fileUpload())
+
+// NEW code - install the body parsing middleware to enable the POST function
 app.use(express.json())
 // app.use(express.urlencoded())
 app.use(
@@ -17,7 +18,6 @@ app.use(
         extended: false
     })
 );
-app.use(fileUpload())
 
 // const customMiddleWare = (req, res, next) => {
 //     console.log('Custom middle ware called')
@@ -26,10 +26,8 @@ app.use(fileUpload())
 // app.use(customMiddleWare)
 
 const validateMiddleWare = (req, res, next) => {
-    console.log("in validation middleware");
     console.log("req files");
     if (req.files == null || req.body.title == null) {
-        console.log("files are null");
         return res.redirect('/posts/new')
     }
     next()
@@ -37,9 +35,10 @@ const validateMiddleWare = (req, res, next) => {
 
 app.use('/posts/store', validateMiddleWare)
 
-app.listen(4000, () => {
-    console.log('App listening on port 4000')
-})
+const BlogPost = require('./models/BlogPost.js')
+
+mongoose.connect('mongodb://127.0.0.1/my_database', { useNewUrlParser: true });
+
 
 // Routing
 //NEW code for the home page after enabling the post 
@@ -51,19 +50,6 @@ app.get('/', async (req, res) => {
         blogposts
     });
 })
-
-/* longer version
-app.get('/', async (req, res) => {
-    const blogposts = await BlogPost.find({})
-    res.render('index', {
-        blogposts: blogposts
-    });
-})*/
-
-// app.get('/', (req, res) => {
-//res.sendFile(path.resolve(__dirname, 'pages/index.html'))
-// res.render('index');
-// })
 
 app.get('/about', (req, res) => {
     //res.sendFile(path.resolve(__dirname,'pages/about.html'))
@@ -87,6 +73,7 @@ app.get('/post/:id', async (req, res) => {
         blogpost
     })
 })
+
 // NEW code - function to handle the POST request 
 // to enable this,
 // we first need to install the body parsing middleware by adding (app.use exp.json&.urlencoded)
@@ -108,10 +95,6 @@ app.post('/posts/store', (req, res) => {
         })
 })
 
-// use a promise instead
-// app.post('/posts/store', (req, res) => {
-//     BlogPost.create(req.body)
-//         .then(blogpost => res.redirect('/'))
-//         .catch(error => console.log(error))
-// })
-
+app.listen(4000, () => {
+    console.log('App listening on port 4000')
+})
