@@ -1,38 +1,63 @@
 import mongodb from 'mongodb'
 const ObjectId = mongodb.ObjectId
 
-let movies //movies stores the reference to the database.
+let movies
 
-export default class MoviesDAO { // We then export the class MoviesDAO which contains an async method injectDB. 
-    static async injectDB(conn) { // injectDB is called as soon as the server starts and provides the database reference to movies.
-        
-        if (movies) { // If the reference already exists, we return.
+export default class MoviesDAO {
+    static async injectDB(conn) {
+
+        if (movies) {
             return
         }
-        try { // Else, we go ahead to connect to the database and movies collection.
+        try {
             movies = await conn.db(process.env.MOVIEREVIEW_NS)
                 .collection('movies')
         }
-        catch (e) { // if we fail to get the reference, we send an error message to the console.
+        catch (e) {
             console.error(`unable to connect in MoviesDAO: ${e}`);
         }
     }
 
-    static async getMovies({ // method to get all movies
-        //default filter
+    static async getMovieById(id) {
+        try {
+            return await movies.aggregate([
+                {
+                    $match: {
+                        _id: new ObjectId(id),
+                    }
+                },
+                {
+                    $lookup:
+                    {
+                        from: 'reviews',
+                        localField: '_id',
+                        foreignField: 'movie_id',
+                        as: 'reviews',
+                    }
+                }
+            ]).next()
+        }
+        catch (e) {
+            console.error(`something went wrong in getMovieById: ${e}`)
+            throw e
+        }
+    }
+    static async getMovies({
+
         filters = null,
         page = 0,
-        moviesPerPage = 20, // will only get 20 movies at once
+        moviesPerPage = 20,
     } = {}) {
         let query
         if (filters) {
-            if ("title" in filters) {query = { $text: { $search: filters['title'] } }
+            if ("title" in filters) {
+                query = { $text: { $search: filters['title'] } }
             } else if ("rated" in filters) {
                 query = { "rated": { $eq: filters['rated'] } }
             }
         }
 
-        let cursor // cursor fetches these documents in batches to reduce both memory consumption and network usage
+        let cursor
         try {
             cursor = await movies
                 .find(query)
@@ -45,6 +70,17 @@ export default class MoviesDAO { // We then export the class MoviesDAO which con
         catch (e) {
             console.error(`Unable to issue find command, ${e}`)
             return { moviesList: [], totalNumMovies: 0 }
+        }
+    }
+    static async getRatings() {
+        let ratings = []
+        try {
+            ratings = await movies.distinct("rated")
+            return ratings
+        }
+        catch (e) {
+            console.error(`unable to get ratings, $(e)`)
+            return ratings
         }
     }
 }
