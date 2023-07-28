@@ -104,7 +104,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
 
-                <Link href="/" style={{ textDecoration: 'none', color: '#000' }}><Center><Logo>Masana.</Logo></Center></Link>
+                <Link href="/" style={{ textDecoration: 'none', color: '#000' }}><Center><Logo>Masana Kids Ltd.</Logo></Center></Link>
                 <Right>
                     {
                         user ?

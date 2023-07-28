@@ -96,7 +96,7 @@ const Footer = () => {
       <Left>
         <Logo>Masana</Logo>
         <Desc>
-Get in touch with us through our social media platforms. Retail therapy is just a click away!        </Desc>
+          Get in touch with us through our social media platforms. Retail therapy is just a click away!        </Desc>
         <SocialContainer>
           <Link href="https://www.facebook.com">
             <SocialIcon bg="3B5999">
@@ -129,12 +129,12 @@ Get in touch with us through our social media platforms. Retail therapy is just 
 
         <List>
           <ListItem><MyLink href="/" color="black">Home</MyLink></ListItem>
-          <ListItem><MyLink href="/products/men" color="black">My Cart</MyLink></ListItem>
-          <ListItem><MyLink href="/products/women" color="black">Boys Fashion</MyLink></ListItem>
-          <ListItem><MyLink href="/products/kids" color="black">My Account</MyLink></ListItem>
-          <ListItem><MyLink href="/account" color="black">Girls Fashion</MyLink></ListItem>
+          <ListItem><MyLink href="/cart" color="black">My Cart</MyLink></ListItem>
+          <ListItem><MyLink href="/products/boys" color="black">Boys Fashion</MyLink></ListItem>
+          <ListItem><MyLink href="/account" color="black">My Account</MyLink></ListItem>
+          <ListItem><MyLink href="/products/girls" color="black">Girls Fashion</MyLink></ListItem>
           <ListItem><MyLink href="/account/orders" color="black">Track your Order</MyLink></ListItem>
-          <ListItem><MyLink href="/cart" color="black">Boys and Girls Footwear</MyLink></ListItem>
+          <ListItem><MyLink href="/products/footwear" color="black">Footwear</MyLink></ListItem>
           <ListItem><MyLink href="/terms" color="black">Ts & Cs</MyLink></ListItem>
         </List>
 
