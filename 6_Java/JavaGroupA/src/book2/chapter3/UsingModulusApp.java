@@ -14,7 +14,8 @@ public class UsingModulusApp {
 
 // get the input data
         System.out.println("Welcome to Bakers biscuits");
-        System.out.print("total Biscuits: ");
+        System.out.println("Please enter the total number of Biscuits that you have");
+        System.out.print("totalBiscuits: ");
         totalBiscuits = sc.nextInt();
         System.out.print("total Friends: ");
         totalFriends = sc.nextInt();
@@ -27,7 +28,7 @@ public class UsingModulusApp {
         System.out.println("Well you need to offer each friend " + biscuitsPerFriend + " biscuits.");
 
         if (biscuitsLeft>0) {
-            System.out.println("And only then you can have the remaining " + biscuitsLeft + " to chow!");
+            System.out.println("And you can have the last " + biscuitsLeft + " to chow!");
         } else
             System.out.println("I'm afraid there's nothing left for you...sorry");
         }
