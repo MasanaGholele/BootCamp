@@ -6,26 +6,25 @@ public class GuessingGameMethod {
     static Scanner sc = new Scanner(System.in);
 
     // static because both main and playARound methods will
-    static boolean keepPlaying = true;
+    static boolean keepPlaying = true; // declared as a class variable rather than a local variable
     public static void main(String[] args)
     {
         System.out.println("Let's play a guessing game!");
         while (keepPlaying)
         {
-            playARound();
+            playARound(); // the body of the main while loop in a separate method
         }
         System.out.println("\nThank you for playing!");
     }
 //    declared out of the main method
-    public static void playARound()
+    public static void playARound() //static so that the static main method can call it.
     {
         boolean validInput;
         int number, guess;
         String answer;
 // Pick a random number
         number = (int)(Math.random() * 10) + 1;
-        System.out.println("\nI'm thinking of a number "
-                + "between 1 and 10.");
+        System.out.println("\nI'm thinking of a number " + "between 1 and 10.");
 // Get the guess
         System.out.print("What do you think it is? ");
         do

@@ -2,27 +2,27 @@ package book2.chapter7;
 
 import java.util.Scanner;
 
-public class GuessingGameMethod2 {
+public class GuessingGameMethod3 {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Let's play a guessing game!");
         do {
-            playARound();
-        } while (askForAnotherRound());
+            playARound(1, getRandomNumber(7, 12));
+        } while (askForAnotherRound("Try again?"));
         System.out.println("\nThank you for playing!");
     }
 
-    public static void playARound() {
+    public static void playARound(int min, int max) {
         boolean validInput;
         int number, guess;
         String answer;
 // Pick a random number
-        number = getRandomNumber();
+        number = getRandomNumber(min, max);
 // Get the guess
-        System.out.println("\nI'm thinking of a number " + "between 1 and 10.");
+        System.out.println("\nI'm thinking of a number " + "between " + min + " and " + max + ".");
         System.out.print("What do you think it is? ");
-        guess = getGuess();
+        guess = getGuess(min, max);
 // Check the guess
         if (guess == number)
             System.out.println("You're right!");
@@ -30,24 +30,25 @@ public class GuessingGameMethod2 {
             System.out.println("You're wrong!" + " The number was " + number);
     }
 
-    public static int getRandomNumber() {
-        return (int) (Math.random() * 10) + 1;
+    public static int getRandomNumber(int min, int max) {
+        return (int) (Math.random()
+                * (max - min + 1)) + min;
     }
 
-    public static int getGuess() { // gets the user’s guess, makes sure that it is between
-            while (true) {
+    public static int getGuess(int min, int max) {
+        while (true) {
             int guess = sc.nextInt();
-            if ((guess < 1) || (guess > 10)) {
-                System.out.print("I said, between 1 and 10. " + "Try again: ");
+            if ((guess < min) || (guess > max)) {
+                System.out.print("I said, between " + min + " and " + max + ". Try again: ");
             } else
-                return guess; // returns the guess if it’s within the acceptable range
+                return guess;
         }
     }
 
-    public static boolean askForAnotherRound() {
+    public static boolean askForAnotherRound(String prompt) {
         while (true) {
             String answer;
-            System.out.print("\nPlay again? (Y or N) ");
+            System.out.print("\n" + prompt + " (Y or N) ");
             answer = sc.next();
             if (answer.equalsIgnoreCase("Y"))
                 return true;
@@ -56,3 +57,4 @@ public class GuessingGameMethod2 {
         }
     }
 }
+
