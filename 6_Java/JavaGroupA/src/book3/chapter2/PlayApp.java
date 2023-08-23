@@ -11,3 +11,6 @@ public class PlayApp {
         System.out.println("Player 2 has a health status of " + p2.getHealth());
     }
 }
+
+// You can create a read-only property by providing a get accessor but not a set accessor.
+// Then other classes can retrieve the property value — but can’t change it

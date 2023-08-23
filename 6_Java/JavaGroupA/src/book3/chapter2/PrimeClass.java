@@ -7,8 +7,7 @@ public class PrimeClass {
     public int x;
 
     {
-        System.out.print(
-                "Enter the starting value " + "for x: ");
+        System.out.print("Enter the starting value " + "for x: ");
         x = sc.nextInt();
     }
 

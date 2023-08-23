@@ -2,7 +2,7 @@ package book3.chapter2;
 
 public class Player {
 
-    private int health;
+    private int health; // health field itself is declared as private, so it can’t be accessed directly
 
     public int getHealth() {
         return health;
