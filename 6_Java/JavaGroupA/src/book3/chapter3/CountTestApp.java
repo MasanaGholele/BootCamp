@@ -4,7 +4,7 @@ public class CountTestApp { // keeps track of how many times its constructor has
     public static void main(String[] args)
     {
         printCount();
-        for (int i = 0; i < 10; i++)
+        for (int i = 1; i < 3; i++)
         {
             CountTest c1 = new CountTest(); // creates an instance of the CountTest class (loops 10 times)
             printCount(); // printCount method, which prints the number of CountTest objects that have been created so far
@@ -12,9 +12,7 @@ public class CountTestApp { // keeps track of how many times its constructor has
     }
     private static void printCount()
     {
-        System.out.println("There are now "
-                + CountTest.getInstanceCount() //
-                + " instances of the CountTest class.");
+        System.out.println("There are now " + CountTest.getInstanceCount() + " instances of the CountTest class.");
     }
 }
 class CountTest
