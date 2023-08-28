@@ -7,7 +7,7 @@ public class TestToString implements Cloneable
         Employee emp = new Employee ("Masana", "Gholele");
 
         System.out.println(emp.toString());
-        // same effect
+        // another way of implementing the toString method
         System.out.println(emp);
     }
 }
