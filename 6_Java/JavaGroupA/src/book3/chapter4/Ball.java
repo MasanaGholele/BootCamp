@@ -1,5 +1,9 @@
 package book3.chapter4;
 
+
+
+
+
 public class Ball {
     private double weight;
     protected double getWeight() {

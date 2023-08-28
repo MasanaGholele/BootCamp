@@ -4,7 +4,7 @@ public class TestToString implements Cloneable
 {
     public static void main(String[] args)
     {
-        Employee emp = new Employee ("Mark", "Drinkwater");
+        Employee emp = new Employee ("Masana", "Gholele");
 
         System.out.println(emp.toString());
         // same effect

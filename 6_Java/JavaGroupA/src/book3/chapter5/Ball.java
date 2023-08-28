@@ -1,7 +1,7 @@
 package book3.chapter5;
 
 public abstract class Ball {
-    public abstract void hit(int batSpeed);
+    public abstract void hit(int batSpeed); // no method body
 
     public static void main(String[] args) {
         BaseBall b = new BaseBall();

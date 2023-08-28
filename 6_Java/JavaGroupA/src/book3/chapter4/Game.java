@@ -8,7 +8,7 @@ public class Game {
 }
 
 class Chess extends Game {
-    public void play() {
-        System.out.println("Playing chess.");
-    }
+//    public void play() {
+//        System.out.println("Playing chess.");
+//    }
 }
