@@ -67,10 +67,10 @@ class Employee
         return emp;
     }
 
-    @Override
-    public String toString() {
-        return
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName;
-    }
+//    @Override
+//    public String toString() {
+//        return
+//                "lastName='" + lastName + '\'' +
+//                ", firstName='" + firstName;
+//    }
 }
