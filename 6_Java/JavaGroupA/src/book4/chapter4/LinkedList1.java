@@ -22,12 +22,12 @@ public class LinkedList1 {
 //
 //
 //
-//       String removedItem =  officers.set(2, "Murdock");
-//
-//        for (String s : officers) {
-//            System.out.println(s);
-//        }
-//        System.out.println("Removed item is: " + removedItem);
+       String removedItem =  officers.set(2, "Murdock");
+
+        for (String s : officers) {
+            System.out.println(s);
+        }
+        System.out.println("The updated item is: " + removedItem);
 
         System.out.println(officers);
         officers.remove("Blake");
@@ -36,9 +36,12 @@ public class LinkedList1 {
         System.out.println(officers);
         String tuttle = "Tutlte";
         officers.add(2, tuttle);
-        officers.remove();
+        System.out.println(officers);
+        officers.remove(); // first one
+        officers.remove(0); // index
+
         System.out.println(officers);
         officers.clear();
         System.out.println("The last officers standing are: " + officers);
-    }
+       }
 }

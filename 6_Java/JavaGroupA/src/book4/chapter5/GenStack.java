@@ -7,7 +7,7 @@ public class GenStack<E> {
 
     public void push(E item) {
         list.addFirst(item);
-    }
+    } // add to top
 
     public E pop() {
         return list.poll();
