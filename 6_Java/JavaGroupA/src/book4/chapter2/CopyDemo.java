@@ -7,6 +7,7 @@ public class CopyDemo
     public static void main(String args[])
     {
         int arrayOriginal[] = {42, 55, 21};
+//        int copyArray = arrayOriginal; will not work
         int arrayNew[] = Arrays.copyOf(arrayOriginal, 3);
         printIntArray(arrayNew);
     }
