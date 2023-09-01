@@ -2,6 +2,9 @@ package book5.chapter1;
 
 import java.util.ArrayList;
 
+//  All this class does is count down from 20 to 0 at 1-second intervals,
+//  displaying messages such as T minus 20 on the console as it counts
+
 public class CountDownApp {
     public static void main(String[] args) {
         CountDownClock clock = new CountDownClock(20);
