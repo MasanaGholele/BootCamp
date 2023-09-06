@@ -5,4 +5,3 @@ public class ShoppingCart {
         System.out.println("Welcome to the Shopping Cart!");
     }
 }
-    +
