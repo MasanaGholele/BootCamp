@@ -32,7 +32,7 @@ const verifyTokenAndAdmin = (req, res, next) => {
         } else {
             res.status(403).json("You are not authorised to do that!")
         }
-    })
-}
+    });
+};
 
 module.exports = { verifyToken, verifyTokenAndAuthorisation, verifyTokenAndAdmin };
